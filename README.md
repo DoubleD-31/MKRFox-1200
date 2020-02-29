@@ -1,4 +1,4 @@
-Les 3 codes contenus dans ce repertoirte sont : 
+Les 3 codes contenus dans ce repertoire sont : 
 
 Listing 1. Code permettant la lecture des informations de la carte MKRFOX 1200 sur le moniteur série
 
