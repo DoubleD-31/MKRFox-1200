@@ -1,0 +1,42 @@
+// SigFox --> Votre première transmission
+
+#include <SigFox.h>
+#include <ArduinoLowPower.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {};
+
+  if (!SigFox.begin()) {
+    Serial.println("Carte MKRFOX non-présente !");
+    return;
+  }
+
+  SigFox.debug(); 
+  delay(100);
+
+   //  informations du module
+  String ID = SigFox.ID();
+  Serial.println("ID  = " + ID);
+
+
+  SigFox.beginPacket();
+  SigFox.print() ou SigFox.write()
+  Serial.println("Envoi en cours ....");
+
+    int ret = SigFox.endPacket(); 
+    
+  if (ret > 0) {
+    Serial.println("Pb de transmission");
+  } else {
+    Serial.println("Transmission ok");
+  }
+
+  SigFox.end();
+
+Serial.println("");
+Serial.println("The end.");
+}
+void loop()
+{
+}
