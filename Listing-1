@@ -1,0 +1,35 @@
+// SigFox --> lecture des informations
+
+#include <SigFox.h>
+#include <ArduinoLowPower.h>
+
+void setup() {
+ 
+  Serial.begin(9600);
+  while (!Serial) {};
+
+  if (!SigFox.begin()) {
+    Serial.println("Carte MKRFOX non-présente !");
+    return;
+  }
+
+  SigFox.debug(); 
+
+   //  informations du module
+  String version = SigFox.SigVersion();
+  String ID = SigFox.ID();
+
+  Serial.println("MKRFox1200 Sigfox");
+  Serial.println("FirmWare version " + version);
+  Serial.println("ID  = " + ID);
+  Serial.print("Temperature du module: ");
+  Serial.println(SigFox.internalTemperature());
+  Serial.println("");
+
+  SigFox.end();
+
+}
+
+void loop()
+{
+}
